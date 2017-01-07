@@ -6,7 +6,7 @@ public class ORDO_XmlDocumentParser {
 	* 
 	* Class is responsible for parsing xml documents to sOBjects.
 	* We are using here metadata approach, instead of doing single 
-	* parse class for single object, here is universal parser. 
+	* parse class for single object, here is a universal parser. 
 	* Of course you need to follow some rules!
 	* You need to provide XML Document(Standard SFDC Object Document), 
 	* its transformed to Dom.Document. Also you need to provide objectType 
@@ -23,7 +23,7 @@ public class ORDO_XmlDocumentParser {
 	*
 	* In simple words we make lowercase and later remove '_' or '__c' signs, then xml node can be 
 	* associated with sobject field.
-	* 
+	* ss
 	*/
 
 	private static final String STRING_XML_TRUE = 'true';
@@ -183,7 +183,8 @@ public class ORDO_XmlDocumentParser {
 		String namespace = rootNode.getNamespace();
 		errorsHandler = new ErrorsHandler();
 		if(String.isBlank(namespace) || !isNamespaceAvailable(namespace)){
-			errorsHandler.registerError(namespace+' is not avaiable or is blank!',true,null);			
+			errorsHandler.registerError(namespace+' is not avaiable or is blank!',true,null);	
+			return null;		
 		}
 		for(Dom.XmlNode childNode:rootNode.getChildElements()){
 			SObject parseObject = objectType.newSObject();
