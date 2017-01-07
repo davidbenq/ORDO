@@ -1,0 +1,12 @@
+<stations>
+	<station>
+		<name>Spadochroniarzy 01</name>
+		<street>Raclawicka</street>
+		<location>51.250846,22.530212</location>
+	</station>
+	<station>
+		<name>UMCS 02</name>
+		<street>Sowinskiego</street>
+		<location>51.246136,22.539252</location>
+	</station>
+</stations>
