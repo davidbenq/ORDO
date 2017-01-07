@@ -23,7 +23,7 @@ public class ORDO_XmlDocumentParser {
 	*
 	* In simple words we make lowercase and later remove '_' or '__c' signs, then xml node can be 
 	* associated with sobject field.
-	* ss
+	* 
 	*/
 
 	private static final String STRING_XML_TRUE = 'true';
@@ -72,7 +72,8 @@ public class ORDO_XmlDocumentParser {
 		}
 		DescribeSObjectResult describeResult = objectType.getDescribe();		
 		Map<String,Schema.SObjectField> fieldMap = describeResult.fields.getMap();
-		fieldMap = updateMapKeysToXmlEntries(fieldMap);		
+		fieldMap = updateMapKeysToXmlEntries(fieldMap);	
+
 		return fieldMap;	
 	}
 
@@ -82,6 +83,7 @@ public class ORDO_XmlDocumentParser {
 			String newKey = key.remove('__c').replace('_','').toLowerCase();			
 			newMap.put(newKey,mapToUpdate.get(key));
 		}
+
 		return newMap;
 	}	
 
@@ -92,6 +94,7 @@ public class ORDO_XmlDocumentParser {
 		String domDocumentBody = document.Body.toString();					
 		Dom.Document xmlDocument = new Dom.Document();
 		xmlDocument.load(domDocumentBody);
+
 		return xmlDocument;				
 	}
 
@@ -99,24 +102,34 @@ public class ORDO_XmlDocumentParser {
 		if(avaiableNamespaces.size() == 0){
 			initializeAvailableNamespaces();
 		}
+
 		return avaiableNamespaces.contains(namespace);
 	}	
 
+	/*
+	* In Salesforce we are not able to put Location field directly,
+	* We need to pass field by __Latitude__s and __Longitude__s 
+	* values.
+	*/
 	private Boolean processXmlNode(Dom.XmlNode node,SObject parseObject,String allowedNamespace){
 		if(node == null || parseObject == null){
 			return false;
 		}
 		for(Dom.XmlNode elem:node.getChildElements()){
+
 			if(!isNamespaceAvailable(elem.getNamespace())){
 				return (Boolean) errorsHandler.registerError(elem.getNamespace()+' namespace is not allowed!',true,false);				
 			}
-			SObjectField field = sObjectFieldMap.get(elem.getName());
+
+			SObjectField field = sObjectFieldMap.get(elem.getName());			
 			if(field == null){
 				return (Boolean) errorsHandler.registerError(elem.getName()+' no such field in '+objectType+' object!',true,false);				
 			}
+
 			String fieldName = field.getDescribe().getName();
 			Schema.DisplayType dataType = field.getDescribe().getType();
-			Object value = getDataValue(dataType,elem.getText());			
+			Object value = getDataValue(dataType,elem.getText());
+
 			if(dataType == Schema.DisplayType.Location && value != null){
 				Location location = (Location) value;
 				parseObject.put(fieldName.remove('__c')+'__Latitude__s',location.getLatitude());
@@ -128,6 +141,7 @@ public class ORDO_XmlDocumentParser {
 					,true,false);
 			}			
 		}
+
 		return true;
 	}
 
@@ -160,20 +174,17 @@ public class ORDO_XmlDocumentParser {
 		if(locations.size() != 2){
 			return null;
 		}
-		try{
-			Double latitude = Double.valueOf(locations[0]);
-			Double longitude = Double.valueOf(locations[1]);
-			return Location.newInstance(latitude,longitude);
-		}catch(TypeException ex){
-			System.debug(ex.getMessage());
-			return null;
-		}		
+		Double latitude = Double.valueOf(locations[0]);
+		Double longitude = Double.valueOf(locations[1]);
+		return Location.newInstance(latitude,longitude);
+				
 	}
 
 	private Boolean getBooleanValue(String stringBoolean){
 		if(!stringBoolean.equals(STRING_XML_TRUE) && !stringBoolean.equals(STRING_XML_FALSE)){
 			return null;
 		}
+
 		return stringBoolean.equals(STRING_XML_TRUE) ? true:false;
 	}
 
@@ -194,6 +205,7 @@ public class ORDO_XmlDocumentParser {
 				parsedObjects.add(parseObject);
 			}
 		}
+
 		return parsedObjects; 
 	}
 
