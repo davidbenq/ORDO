@@ -1,18 +1,18 @@
 public class ORDO_XmlDocumentParser {
 
 	/*
-	* Class: ORDO_XmlDocumentParser
-	* Author[s]: Dawid Bieniek[dawidsfdc@gmail.com]
+	*	Class: ORDO_XmlDocumentParser
+	*	Author[s]: Dawid Bieniek[dawidsfdc@gmail.com]
 	* 
-	* Class is responsible for parsing xml documents to sOBjects.
-	* We are using here metadata approach, instead of doing single 
-	* parse class for single object, here is a universal parser. 
-	* Of course you need to follow some rules!
-	* You need to provide XML Document(Standard SFDC Object Document), 
-	* its transformed to Dom.Document. Also you need to provide objectType 
-	* of sfdc object to which you want transform xml data.
-	* Here is mapping between metadata field description and xml node name.
-	* Its convenction
+	*	Class is responsible for parsing xml documents to sOBjects.
+	* 	We are using here metadata approach, instead of doing single 
+	* 	parse class for single object, here is a universal parser. 
+	* 	Of course you need to follow some rules!
+	* 	You need to provide XML Document(Standard SFDC Object Document), 
+	* 	its transformed to Dom.Document. Also you need to provide objectType 
+	* 	of sfdc object to which you want transform xml data.
+	* 	Here is mapping between metadata field description and xml node name.
+	* 	Its convenction
 	*		Example 1:
 	*			Field Name: example_field_name__c
 	*			XML node name: examplefieldname
@@ -21,8 +21,8 @@ public class ORDO_XmlDocumentParser {
 	*			Field Name: Name
 	*			XML node name: name
 	*
-	* In simple words we make lowercase and later remove '_' or '__c' signs, then xml node can be 
-	* associated with sobject field.
+	* 	In simple words we make lowercase and later remove '_' or '__c' signs, then xml node can be 
+	* 	associated with sobject field.
 	* 
 	*/
 
@@ -115,9 +115,9 @@ public class ORDO_XmlDocumentParser {
 	}	
 
 	/*
-	* In Salesforce we are not able to put Location field directly,
-	* We need to pass field by __Latitude__s and __Longitude__s indirectly
-	* values.
+	*	In Salesforce we are not able to put Location field directly,
+	*	We need to pass field by __Latitude__s and __Longitude__s indirectly
+	*	values.
 	*/
 	private Boolean processXmlNode(Dom.XmlNode node,SObject parseObject){
 		if(node == null || parseObject == null){
@@ -155,13 +155,21 @@ public class ORDO_XmlDocumentParser {
 		return true;
 	}
 
+	/*
+	*	This function make data packing.
+	*	From xml we are able to get string value only.
+	*	Here we can do maping thanks to current field data type and text value
+	*	If object which you want to parse have unsupported data type you can define
+	*	maping here.
+	*/
 	private Object getDataValue(Schema.DisplayType dataType,String textValue){
 		try{
-			if(dataType == Schema.DisplayType.String || dataType == Schema.DisplayType.Picklist){
+			if(dataType == Schema.DisplayType.String || dataType == Schema.DisplayType.Picklist
+			 || dataType == Schema.DisplayType.Phone){
 				return textValue;
 			}else if(dataType == Schema.DisplayType.Integer){
 				return Integer.valueOf(textValue);
-			}else if(dataType == Schema.DisplayType.Double){
+			}else if(dataType == Schema.DisplayType.Double || dataType == Schema.DisplayType.Currency){
 				return Double.valueOf(textValue);
 			}else if(dataType == Schema.DisplayType.Location){
 				return getLocationValue(textValue);			
@@ -169,8 +177,7 @@ public class ORDO_XmlDocumentParser {
 				return getBooleanValue(textValue);
 			}else if(dataType == Schema.DisplayType.Date){
 				return Date.parse(textValue);
-			}
-			else{
+			}else{
 				return null;
 			}
 		}catch(TypeException ex){
