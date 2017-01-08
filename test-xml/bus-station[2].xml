@@ -1,0 +1,993 @@
+<!-- Should pass -->
+<busstations:stations xmlns:busstations="http://www.example.com">
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>Spadochroniarzy 01</busstations:name>
+		<busstations:street>Raclawicka</busstations:street>
+		<busstations:location>51.250846,22.530212</busstations:location>
+	</busstations:station>
+	<busstations:station>
+		<busstations:name>UMCS 02</busstations:name>
+		<busstations:street>Sowinskiego</busstations:street>
+		<busstations:location>51.246136,22.539252</busstations:location>
+	</busstations:station>
+</busstations:stations>

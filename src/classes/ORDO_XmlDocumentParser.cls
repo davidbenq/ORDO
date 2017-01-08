@@ -58,8 +58,9 @@ public class ORDO_XmlDocumentParser {
 	public ORDO_XmlDocumentParser(Document passedDocument,SObjectType passedObjectType) {
 		document = passedDocument;
 		objectType = passedObjectType;
+		errorsHandler = new ErrorsHandler();
 		sObjectFieldMap = setSobjectFieldMap();
-		xmlDocument = initializeXmlDocument();
+		xmlDocument = initializeXmlDocument();		
 		initializeXmlDocument();
 		if(avaiableNamespaces.size() == 0){
 			initializeAvailableNamespaces();
@@ -68,7 +69,8 @@ public class ORDO_XmlDocumentParser {
 
 	private Map<String,Schema.SObjectField> setSobjectFieldMap(){
 		if(objectType == null){
-			throw new ORDO_XmlException('Object Type is null!');
+			errorsHandler.registerError('ObjectType is null!',true);
+			return null;
 		}
 		DescribeSObjectResult describeResult = objectType.getDescribe();		
 		Map<String,Schema.SObjectField> fieldMap = describeResult.fields.getMap();
@@ -89,13 +91,19 @@ public class ORDO_XmlDocumentParser {
 
 	private Dom.Document initializeXmlDocument(){
 		if(document == null){
-			throw new ORDO_XmlException('Document is null!');
+			errorsHandler.registerError('Document is null!',true);
+			return null;
 		}
-		String domDocumentBody = document.Body.toString();					
-		Dom.Document xmlDocument = new Dom.Document();
-		xmlDocument.load(domDocumentBody);
 
-		return xmlDocument;				
+		try{
+			String domDocumentBody = document.Body.toString();					
+			Dom.Document xmlDocument = new Dom.Document();
+			xmlDocument.load(domDocumentBody);
+			return xmlDocument;	
+		}catch(XmlException ex){			
+			errorsHandler.registerError('Problem with transform to XML document occur',true);
+			throw new ORDO_XmlException(ex.getMessage(),ex);
+		}					
 	}
 
 	private Boolean isNamespaceAvailable(String namespace){
@@ -108,22 +116,24 @@ public class ORDO_XmlDocumentParser {
 
 	/*
 	* In Salesforce we are not able to put Location field directly,
-	* We need to pass field by __Latitude__s and __Longitude__s 
+	* We need to pass field by __Latitude__s and __Longitude__s indirectly
 	* values.
 	*/
-	private Boolean processXmlNode(Dom.XmlNode node,SObject parseObject,String allowedNamespace){
+	private Boolean processXmlNode(Dom.XmlNode node,SObject parseObject){
 		if(node == null || parseObject == null){
 			return false;
 		}
 		for(Dom.XmlNode elem:node.getChildElements()){
 
 			if(!isNamespaceAvailable(elem.getNamespace())){
-				return (Boolean) errorsHandler.registerError(elem.getNamespace()+' namespace is not allowed!',true,false);				
+				errorsHandler.registerError(elem.getNamespace()+' namespace is not allowed!',true);				
+				return false;
 			}
 
 			SObjectField field = sObjectFieldMap.get(elem.getName());			
 			if(field == null){
-				return (Boolean) errorsHandler.registerError(elem.getName()+' no such field in '+objectType+' object!',true,false);				
+				errorsHandler.registerError(elem.getName()+' no such field in '+objectType+' object!',true);
+				return false;				
 			}
 
 			String fieldName = field.getDescribe().getName();
@@ -137,8 +147,8 @@ public class ORDO_XmlDocumentParser {
 			}else if(value != null){
 				parseObject.put(fieldName,value);	
 			}else{
-				return (Boolean) errorsHandler.registerError('Value for: '+elem.getName()+' namespace['+elem.getNamespace()+'] is null!'
-					,true,false);
+				errorsHandler.registerError('Value for: '+elem.getName()+' namespace['+elem.getNamespace()+'] is null!',true);
+				return false;
 			}			
 		}
 
@@ -164,7 +174,7 @@ public class ORDO_XmlDocumentParser {
 				return null;
 			}
 		}catch(TypeException ex){
-			System.debug(ex.getMessage());
+			errorsHandler.registerError(ex.getMessage(),true);
 			return null;
 		}
 	}
@@ -176,8 +186,8 @@ public class ORDO_XmlDocumentParser {
 		}
 		Double latitude = Double.valueOf(locations[0]);
 		Double longitude = Double.valueOf(locations[1]);
-		return Location.newInstance(latitude,longitude);
-				
+
+		return Location.newInstance(latitude,longitude);				
 	}
 
 	private Boolean getBooleanValue(String stringBoolean){
@@ -189,17 +199,21 @@ public class ORDO_XmlDocumentParser {
 	}
 
 	public List<SObject> getSObjects(){		
-		List<SObject> parsedObjects = new List<SObject>();
+		if(xmlDocument == null || objectType == null){
+			return null;
+		}
+
+		List<SObject> parsedObjects = new List<SObject>();		
 		Dom.XmlNode rootNode = xmlDocument.getRootElement();
 		String namespace = rootNode.getNamespace();
-		errorsHandler = new ErrorsHandler();
+	
 		if(String.isBlank(namespace) || !isNamespaceAvailable(namespace)){
-			errorsHandler.registerError(namespace+' is not avaiable or is blank!',true,null);	
+			errorsHandler.registerError(namespace+' is not avaiable or is blank!',true);	
 			return null;		
 		}
 		for(Dom.XmlNode childNode:rootNode.getChildElements()){
 			SObject parseObject = objectType.newSObject();
-			if(!isNamespaceAvailable(childNode.getNamespace()) || !processXmlNode(childNode,parseObject,namespace)){
+			if(!isNamespaceAvailable(childNode.getNamespace()) || !processXmlNode(childNode,parseObject)){
 				return null;
 			}else{
 				parsedObjects.add(parseObject);
@@ -223,13 +237,11 @@ public class ORDO_XmlDocumentParser {
 			errors = new List<String>();
 		}	
 
-		public Object registerError(String error,Boolean debugOutput,Object returnValue){
+		public void registerError(String error,Boolean debugOutput){
 			errors.add(error);
 			if(debugOutput){
-				System.debug(debugOutput);
+				System.debug(error);
 			}
-
-			return returnValue;
 		}
 	} 
 }

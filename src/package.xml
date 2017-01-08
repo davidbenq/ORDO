@@ -17,7 +17,8 @@
 		<members>ORDO_XmlDocumentParser</members>
 		<members>ORDO_XmlBusStationParser</members>
 		<members>ORDO_XmlException</members>
+		<members>ORDO_ErrorsHandler</members>
 		<name>ApexClass</name>
 	</types>
-	<version>37.0</version>
+	<version>36.0</version>
 </Package>
