@@ -18,6 +18,7 @@
 		<members>ORDO_XmlBusStationParser</members>
 		<members>ORDO_XmlException</members>
 		<members>ORDO_ErrorsHandler</members>
+		<members>DataMapping</members>
 		<name>ApexClass</name>
 	</types>
 	<version>36.0</version>

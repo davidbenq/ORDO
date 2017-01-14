@@ -24,11 +24,23 @@ public class ORDO_XmlDocumentParser {
 	* 	In simple words we make lowercase and later remove '_' or '__c' signs, then xml node can be 
 	* 	associated with sobject field.
 	* 
+	*/	
+
+	/*
+	*	This map is responsible for proper data type mapping. It's references Apex sObjects data types to
+	*	Apex data type by special class contained in DataMapping namespace.
 	*/
-
-	private static final String STRING_XML_TRUE = 'true';
-
-	private static final String STRING_XML_FALSE = 'false';
+	private static final Map<Schema.DisplayType,Type> dataTypesMapping = new Map<Schema.DisplayType,Type> {
+		Schema.DisplayType.String => DataMapping.StringDataTransfer.class,
+		Schema.DisplayType.Picklist => DataMapping.StringDataTransfer.class,
+		Schema.DisplayType.Phone => DataMapping.StringDataTransfer.class,
+		Schema.DisplayType.Integer => DataMapping.IntegerDataTransfer.class,
+		Schema.DisplayType.Double => DataMapping.DoubleDataTransfer.class,
+		Schema.DisplayType.Boolean => DataMapping.BooleanDataTransfer.class,
+		Schema.DisplayType.Date => DataMapping.DateDataTransfer.class,
+		Schema.DisplayType.Currency => DataMapping.DoubleDataTransfer.class,
+		Schema.DisplayType.Location => DataMapping.LocationDataTransfer.class
+	};
 
 	public static final String NAMESPACES_CONF = 'Namespaces';
 
@@ -156,53 +168,25 @@ public class ORDO_XmlDocumentParser {
 	}
 
 	/*
-	*	This function make data packing.
+	*	This function make data packaging.
 	*	From xml we are able to get string value only.
 	*	Here we can do maping thanks to current field data type and text value
 	*	If object which you want to parse have unsupported data type you can define
 	*	maping here.
+	*
+	*	It's achieved by using Type apex class and polymorphism.
 	*/
-	private Object getDataValue(Schema.DisplayType dataType,String textValue){
+	private Object getDataValue(Schema.DisplayType dataType,String textValue){				
 		try{
-			if(dataType == Schema.DisplayType.String || dataType == Schema.DisplayType.Picklist
-			 || dataType == Schema.DisplayType.Phone){
-				return textValue;
-			}else if(dataType == Schema.DisplayType.Integer){
-				return Integer.valueOf(textValue);
-			}else if(dataType == Schema.DisplayType.Double || dataType == Schema.DisplayType.Currency){
-				return Double.valueOf(textValue);
-			}else if(dataType == Schema.DisplayType.Location){
-				return getLocationValue(textValue);			
-			}else if(dataType == Schema.DisplayType.Boolean){
-				return getBooleanValue(textValue);
-			}else if(dataType == Schema.DisplayType.Date){
-				return Date.parse(textValue);
-			}else{
-				return null;
-			}
+			DataMapping.DataTransfer dataTypeTransfer = (DataMapping.DataTransfer) dataTypesMapping.get(dataType).newInstance();
+			return dataTypeTransfer.transfer(textValue);
 		}catch(TypeException ex){
 			errorsHandler.registerError(ex.getMessage(),true);
 			return null;
-		}
-	}
-
-	private Location getLocationValue(String stringLocation){
-		List<String> locations = stringLocation.split(',');
-		if(locations.size() != 2){
+		}catch(NullPointerException ex){
+			errorsHandler.registerError('Probably not appropriate data type mapping found, details: '+ex.getMessage(),true);
 			return null;
 		}
-		Double latitude = Double.valueOf(locations[0]);
-		Double longitude = Double.valueOf(locations[1]);
-
-		return Location.newInstance(latitude,longitude);				
-	}
-
-	private Boolean getBooleanValue(String stringBoolean){
-		if(!stringBoolean.equals(STRING_XML_TRUE) && !stringBoolean.equals(STRING_XML_FALSE)){
-			return null;
-		}
-
-		return stringBoolean.equals(STRING_XML_TRUE) ? true:false;
 	}
 
 	public List<SObject> getSObjects(){		
