@@ -28,18 +28,18 @@ public class ORDO_XmlDocumentParser {
 
 	/*
 	*	This map is responsible for proper data type mapping. It's references Apex sObjects data types to
-	*	Apex data type by special class contained in DataMapping namespace.
+	*	Apex data type by special class contained in ORDO_DataMapping namespace.
 	*/
 	private static final Map<Schema.DisplayType,Type> dataTypesMapping = new Map<Schema.DisplayType,Type> {
-		Schema.DisplayType.String => DataMapping.StringDataTransfer.class,
-		Schema.DisplayType.Picklist => DataMapping.StringDataTransfer.class,
-		Schema.DisplayType.Phone => DataMapping.StringDataTransfer.class,
-		Schema.DisplayType.Integer => DataMapping.IntegerDataTransfer.class,
-		Schema.DisplayType.Double => DataMapping.DoubleDataTransfer.class,
-		Schema.DisplayType.Boolean => DataMapping.BooleanDataTransfer.class,
-		Schema.DisplayType.Date => DataMapping.DateDataTransfer.class,
-		Schema.DisplayType.Currency => DataMapping.DoubleDataTransfer.class,
-		Schema.DisplayType.Location => DataMapping.LocationDataTransfer.class
+		Schema.DisplayType.String => ORDO_DataMapping.StringDataTransfer.class,
+		Schema.DisplayType.Picklist => ORDO_DataMapping.StringDataTransfer.class,
+		Schema.DisplayType.Phone => ORDO_DataMapping.StringDataTransfer.class,
+		Schema.DisplayType.Integer => ORDO_DataMapping.IntegerDataTransfer.class,
+		Schema.DisplayType.Double => ORDO_DataMapping.DoubleDataTransfer.class,
+		Schema.DisplayType.Boolean => ORDO_DataMapping.BooleanDataTransfer.class,
+		Schema.DisplayType.Date => ORDO_DataMapping.DateDataTransfer.class,
+		Schema.DisplayType.Currency => ORDO_DataMapping.DoubleDataTransfer.class,
+		Schema.DisplayType.Location => ORDO_DataMapping.LocationDataTransfer.class
 	};
 
 	public static final String NAMESPACES_CONF = 'Namespaces';
@@ -156,6 +156,13 @@ public class ORDO_XmlDocumentParser {
 				Location location = (Location) value;
 				parseObject.put(fieldName.remove('__c')+'__Latitude__s',location.getLatitude());
 				parseObject.put(fieldName.remove('__c')+'__Longitude__s',location.getLongitude());
+			}else if(dataType == Schema.DisplayType.Picklist && value != null){
+				if(isPicklistValueAvailable(field,(String) value)){
+					parseObject.put(fieldName,value);
+				}else{
+					errorsHandler.registerError('No such picklist value['+value+'] for: '+fieldName,true);
+					return false;
+				}
 			}else if(value != null){
 				parseObject.put(fieldName,value);	
 			}else{
@@ -178,7 +185,7 @@ public class ORDO_XmlDocumentParser {
 	*/
 	private Object getDataValue(Schema.DisplayType dataType,String textValue){				
 		try{
-			DataMapping.DataTransfer dataTypeTransfer = (DataMapping.DataTransfer) dataTypesMapping.get(dataType).newInstance();
+			ORDO_DataMapping.DataTransfer dataTypeTransfer = (ORDO_DataMapping.DataTransfer) dataTypesMapping.get(dataType).newInstance();
 			return dataTypeTransfer.transfer(textValue);
 		}catch(TypeException ex){
 			errorsHandler.registerError(ex.getMessage(),true);
@@ -187,6 +194,17 @@ public class ORDO_XmlDocumentParser {
 			errorsHandler.registerError('Probably not appropriate data type mapping found, details: '+ex.getMessage(),true);
 			return null;
 		}
+	}
+
+	private Boolean isPicklistValueAvailable(SObjectField field,String picklistValue){
+		Schema.DescribeFieldResult fieldDescription = field.getDescribe();
+		List<Schema.PicklistEntry> picklistEntries = fieldDescription.getPicklistValues();
+		for(Schema.PicklistEntry entry:picklistEntries){
+			if(entry.getValue().equals(picklistValue)){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public List<SObject> getSObjects(){		

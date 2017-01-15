@@ -1,4 +1,4 @@
-<!-- Should pass -->
+<!-- Should not pass because daytype hasn't Every value -->
 <buslines:lines xmlns:buslines="http://www.buslines.com">
 	<buslines:line>
 		<buslines:name>Linia 37</buslines:name>

@@ -1,6 +1,12 @@
-public class DataMapping {
+public class ORDO_DataMapping {
 	/*
-	* PLease catch exception [Type Exception] in caller class
+	*	This class is responsible for providing appropriate data conversion.
+	*	Every new subclass should implements DataTransfer interface.
+	*	Example of usage in ORDO_XmlDocumentParser.
+	*	
+	*	Short idea presentation:
+	*		ORDO_DataMapping.DataTransfer dataTypeTransfer 
+	*			= (ORDO_DataMapping.DataTransfer) dataTypesMapping.get(dataType).newInstance();
 	*/
 	public interface DataTransfer{
 		Object transfer(String value);
