@@ -30,13 +30,13 @@ public class ORDO_XmlDocumentParser extends ORDO_ImportDataService {
 
 	public static final Set<String> avaiableNamespaces = new Set<String>();
 
-	public  SObjectType objectType {get;set;}
+	public SObjectType objectType {get;set;}
 
-	public  Document document {get;set;}
+	public Document document {get;set;}
 
-	public  Dom.Document xmlDocument {get;set;}
+	public Dom.Document xmlDocument {get;set;}
 
-	public  Map<String,Schema.SObjectField> sObjectFieldMap{get;set;}
+	public Map<String,Schema.SObjectField> sObjectFieldMap{get;set;}
 
 	public ErrorsHandler errorsHandler;
 
@@ -51,30 +51,26 @@ public class ORDO_XmlDocumentParser extends ORDO_ImportDataService {
 		}
 	}
 
+	public static Set<String> listXMLEntriesForAccountFields(SObjectType objectType){		
+		DescribeSObjectResult describeResult = objectType.getDescribe();		
+		Map<String,Schema.SObjectField> fieldMap = describeResult.fields.getMap();
+		return updateMapKeysToXmlEntries(fieldMap).keySet();
+	}
+
+	private static Map<String,Schema.SObjectField> updateMapKeysToXmlEntries(Map<String,Schema.SObjectField> mapToUpdate){
+		Map<String,Schema.SObjectField> newMap = new Map<String,Schema.SObjectField>();
+		for(String key:mapToUpdate.keySet()){
+			String newKey = key.remove('__c').replace('_','').toLowerCase();			
+			newMap.put(newKey,mapToUpdate.get(key));
+		}
+
+		return newMap;
+	}
+
 	public ORDO_XmlDocumentParser() {		
 		errorsHandler = new ErrorsHandler();		
 		if(avaiableNamespaces.size() == 0){
 			initializeAvailableNamespaces();
-		}
-	}
-
-	public override void setDataSource(Object dataSource){		
-		if(document != null){
-			System.debug('Document has been already set!');
-		}else if(!(dataSource instanceof Document)){
-			System.debug('Incorrect data source!');
-		}else{
-			document = (Document) dataSource;
-			xmlDocument = initializeXmlDocument();	
-		}
-	}
-
-	public override void setSObjectType(SObjectType sObjectType){
-		if(objectType != null){
-			System.debug('ObjectType has been already set!');
-		}else{
-			objectType = sObjectType;
-			sObjectFieldMap = setSobjectFieldMap();
 		}
 	}
 
@@ -88,17 +84,7 @@ public class ORDO_XmlDocumentParser extends ORDO_ImportDataService {
 		fieldMap = updateMapKeysToXmlEntries(fieldMap);	
 
 		return fieldMap;	
-	}
-
-	private Map<String,Schema.SObjectField> updateMapKeysToXmlEntries(Map<String,Schema.SObjectField> mapToUpdate){
-		Map<String,Schema.SObjectField> newMap = new Map<String,Schema.SObjectField>();
-		for(String key:mapToUpdate.keySet()){
-			String newKey = key.remove('__c').replace('_','').toLowerCase();			
-			newMap.put(newKey,mapToUpdate.get(key));
-		}
-
-		return newMap;
-	}	
+	}		
 
 	private Dom.Document initializeXmlDocument(){
 		if(document == null){
@@ -163,6 +149,7 @@ public class ORDO_XmlDocumentParser extends ORDO_ImportDataService {
 					return false;
 				}
 			}else if(value != null){
+
 				parseObject.put(fieldName,value);	
 			}else{
 				errorsHandler.registerError('Value for: '+elem.getName()+' namespace['+elem.getNamespace()+'] is null!',true);
@@ -231,6 +218,25 @@ public class ORDO_XmlDocumentParser extends ORDO_ImportDataService {
 		return parsedObjects; 
 	}
 
+	public override void setDataSource(Object dataSource){		
+		if(document != null){
+			System.debug('Document has been already set!');
+		}else if(!(dataSource instanceof Document)){
+			System.debug('Incorrect data source!');
+		}else{
+			document = (Document) dataSource;
+			xmlDocument = initializeXmlDocument();	
+		}
+	}
+
+	public override void setSObjectType(SObjectType sObjectType){
+		if(objectType != null){
+			System.debug('ObjectType has been already set!');
+		}else{
+			objectType = sObjectType;
+			sObjectFieldMap = setSobjectFieldMap();
+		}
+	}
 
 	public class ErrorsHandler{
 		public final List<String> errors{set;get;}

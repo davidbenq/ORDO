@@ -14,6 +14,9 @@ public class ORDO_DataMapping {
 
 	public class StringDataTransfer implements DataTransfer{
 		public Object transfer(String value){
+			if(String.isBlank(value)){
+				return null;
+			}
 			return value;
 		}
 	}

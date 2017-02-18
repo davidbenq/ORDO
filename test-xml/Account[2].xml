@@ -1,0 +1,53 @@
+<!-- Should fail because Hot2[not available picklist] in 30 line-->
+<accounts:accounts xmlns:accounts="http://www.example.com">
+	<accounts:account>
+		<accounts:name>Test account1</accounts:name>
+		<accounts:accountnumber>Test account number</accounts:accountnumber>
+		<accounts:accountsource>Web</accounts:accountsource>
+		<accounts:annualrevenue>5555.12</accounts:annualrevenue>
+		<accounts:site>http://www.testaccount.com</accounts:site>
+		<accounts:phone>777 122 444</accounts:phone>
+		<accounts:rating>Hot</accounts:rating>
+		<!-- <accounts:fax>333 123 121</accounts:fax> -->
+	</accounts:account>	
+	<accounts:account>
+		<accounts:name>Test account2</accounts:name>
+		<accounts:accountnumber>Test account number</accounts:accountnumber>
+		<accounts:accountsource>Web</accounts:accountsource>
+		<accounts:annualrevenue>5555.12</accounts:annualrevenue>
+		<accounts:site>http://www.testaccount.com</accounts:site>
+		<accounts:phone>777 122 444</accounts:phone>
+		<accounts:rating>Hot</accounts:rating>
+		<!-- <accounts:fax>333 123 121</accounts:fax> -->
+	</accounts:account>	
+	<accounts:account>
+		<accounts:name>Test account3</accounts:name>
+		<accounts:accountnumber>Test account number</accounts:accountnumber>
+		<accounts:accountsource>Web</accounts:accountsource>
+		<accounts:annualrevenue>5555.12</accounts:annualrevenue>
+		<accounts:site>http://www.testaccount.com</accounts:site>
+		<accounts:phone>777 122 444</accounts:phone>
+		<accounts:rating>Hot2</accounts:rating>
+		<!-- <accounts:fax>333 123 121</accounts:fax> -->
+	</accounts:account>	
+	<accounts:account>
+		<accounts:name>Test account4</accounts:name>
+		<accounts:accountnumber>Test account number</accounts:accountnumber>
+		<accounts:accountsource>Web</accounts:accountsource>
+		<accounts:annualrevenue>5555.12</accounts:annualrevenue>
+		<accounts:site>http://www.testaccount.com</accounts:site>
+		<accounts:phone>777 122 444</accounts:phone>
+		<accounts:rating>Hot</accounts:rating>
+		<!-- <accounts:fax>333 123 121</accounts:fax> -->
+	</accounts:account>	
+	<accounts:account>
+		<accounts:name>Test account5</accounts:name>
+		<accounts:accountnumber>Test account number</accounts:accountnumber>
+		<accounts:accountsource>Web</accounts:accountsource>
+		<accounts:annualrevenue>5555.12</accounts:annualrevenue>
+		<accounts:site>http://www.testaccount.com</accounts:site>
+		<accounts:phone>777 122 444</accounts:phone>
+		<accounts:rating>Hot</accounts:rating>
+		<!-- <accounts:fax>333 123 121</accounts:fax> -->
+	</accounts:account>	
+</accounts:accounts>
