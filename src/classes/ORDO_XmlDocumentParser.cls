@@ -1,4 +1,4 @@
-public class ORDO_XmlDocumentParser {
+public class ORDO_XmlDocumentParser extends ORDO_ImportDataService {
 
 	/*
 	*	Class: ORDO_XmlDocumentParser
@@ -24,35 +24,19 @@ public class ORDO_XmlDocumentParser {
 	* 	In simple words we make lowercase and later remove '_' or '__c' signs, then xml node can be 
 	* 	associated with sobject field.
 	* 
-	*/	
-
-	/*
-	*	This map is responsible for proper data type mapping. It's references Apex sObjects data types to
-	*	Apex data type by special class contained in ORDO_DataMapping namespace.
-	*/
-	private static final Map<Schema.DisplayType,Type> dataTypesMapping = new Map<Schema.DisplayType,Type> {
-		Schema.DisplayType.String => ORDO_DataMapping.StringDataTransfer.class,
-		Schema.DisplayType.Picklist => ORDO_DataMapping.StringDataTransfer.class,
-		Schema.DisplayType.Phone => ORDO_DataMapping.StringDataTransfer.class,
-		Schema.DisplayType.Integer => ORDO_DataMapping.IntegerDataTransfer.class,
-		Schema.DisplayType.Double => ORDO_DataMapping.DoubleDataTransfer.class,
-		Schema.DisplayType.Boolean => ORDO_DataMapping.BooleanDataTransfer.class,
-		Schema.DisplayType.Date => ORDO_DataMapping.DateDataTransfer.class,
-		Schema.DisplayType.Currency => ORDO_DataMapping.DoubleDataTransfer.class,
-		Schema.DisplayType.Location => ORDO_DataMapping.LocationDataTransfer.class
-	};
+	*/		
 
 	public static final String NAMESPACES_CONF = 'Namespaces';
 
 	public static final Set<String> avaiableNamespaces = new Set<String>();
 
-	public final SObjectType objectType {get;set;}
+	public  SObjectType objectType {get;set;}
 
-	public final Document document {get;set;}
+	public  Document document {get;set;}
 
-	public final Dom.Document xmlDocument {get;set;}
+	public  Dom.Document xmlDocument {get;set;}
 
-	public final Map<String,Schema.SObjectField> sObjectFieldMap{get;set;}
+	public  Map<String,Schema.SObjectField> sObjectFieldMap{get;set;}
 
 	public ErrorsHandler errorsHandler;
 
@@ -67,15 +51,30 @@ public class ORDO_XmlDocumentParser {
 		}
 	}
 
-	public ORDO_XmlDocumentParser(Document passedDocument,SObjectType passedObjectType) {
-		document = passedDocument;
-		objectType = passedObjectType;
-		errorsHandler = new ErrorsHandler();
-		sObjectFieldMap = setSobjectFieldMap();
-		xmlDocument = initializeXmlDocument();		
-		initializeXmlDocument();
+	public ORDO_XmlDocumentParser() {		
+		errorsHandler = new ErrorsHandler();		
 		if(avaiableNamespaces.size() == 0){
 			initializeAvailableNamespaces();
+		}
+	}
+
+	public override void setDataSource(Object dataSource){		
+		if(document != null){
+			System.debug('Document has been already set!');
+		}else if(!(dataSource instanceof Document)){
+			System.debug('Incorrect data source!');
+		}else{
+			document = (Document) dataSource;
+			xmlDocument = initializeXmlDocument();	
+		}
+	}
+
+	public override void setSObjectType(SObjectType sObjectType){
+		if(objectType != null){
+			System.debug('ObjectType has been already set!');
+		}else{
+			objectType = sObjectType;
+			sObjectFieldMap = setSobjectFieldMap();
 		}
 	}
 
@@ -207,7 +206,7 @@ public class ORDO_XmlDocumentParser {
 		return false;
 	}
 
-	public List<SObject> getSObjects(){		
+	public override List<SObject> getSObjects(){		
 		if(xmlDocument == null || objectType == null){
 			return null;
 		}
