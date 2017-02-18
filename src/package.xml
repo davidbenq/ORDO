@@ -2,14 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>Asset</members>
-		<members>Case</members>
-		<members>ORDO_Bus_Station__c</members>
-		<members>ORDO_Bus__c</members>
-		<members>ORDO_Bus_Line__c</members>
-		<members>ORDO_Bus_Stops__c</members>
-		<members>ORDO_Bus__c</members>
-		<members>ORDO_Bus_Transit__c</members>
-		<members>ORDO_Assets_usage__c</members>
+		<members>Case</members>		
 		<members>ORDO_Properties__c</members>
 		<name>CustomObject</name>
 	</types>
