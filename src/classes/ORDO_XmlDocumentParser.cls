@@ -1,18 +1,18 @@
-public class ORDO_XmlDocumentParser {
+public class ORDO_XmlDocumentParser extends ORDO_ImportDataService {
 
 	/*
-	* Class: ORDO_XmlDocumentParser
-	* Author[s]: Dawid Bieniek[dawidsfdc@gmail.com]
+	*	Class: ORDO_XmlDocumentParser
+	*	Author[s]: Dawid Bieniek[dawidsfdc@gmail.com]
 	* 
-	* Class is responsible for parsing xml documents to sOBjects.
-	* We are using here metadata approach, instead of doing single 
-	* parse class for single object, here is a universal parser. 
-	* Of course you need to follow some rules!
-	* You need to provide XML Document(Standard SFDC Object Document), 
-	* its transformed to Dom.Document. Also you need to provide objectType 
-	* of sfdc object to which you want transform xml data.
-	* Here is mapping between metadata field description and xml node name.
-	* Its convenction
+	*	Class is responsible for parsing xml documents to sOBjects.
+	* 	We are using here metadata approach, instead of doing single 
+	* 	parse class for single object, here is a universal parser. 
+	* 	Of course you need to follow some rules!
+	* 	You need to provide XML Document(Standard SFDC Object Document), 
+	* 	its transformed to Dom.Document. Also you need to provide objectType 
+	* 	of sfdc object to which you want transform xml data.
+	* 	Here is mapping between metadata field description and xml node name.
+	* 	Its convenction
 	*		Example 1:
 	*			Field Name: example_field_name__c
 	*			XML node name: examplefieldname
@@ -21,26 +21,22 @@ public class ORDO_XmlDocumentParser {
 	*			Field Name: Name
 	*			XML node name: name
 	*
-	* In simple words we make lowercase and later remove '_' or '__c' signs, then xml node can be 
-	* associated with sobject field.
+	* 	In simple words we make lowercase and later remove '_' or '__c' signs, then xml node can be 
+	* 	associated with sobject field.
 	* 
-	*/
-
-	private static final String STRING_XML_TRUE = 'true';
-
-	private static final String STRING_XML_FALSE = 'false';
+	*/		
 
 	public static final String NAMESPACES_CONF = 'Namespaces';
 
 	public static final Set<String> avaiableNamespaces = new Set<String>();
 
-	public final SObjectType objectType {get;set;}
+	public SObjectType objectType {get;set;}
 
-	public final Document document {get;set;}
+	public Document document {get;set;}
 
-	public final Dom.Document xmlDocument {get;set;}
+	public Dom.Document xmlDocument {get;set;}
 
-	public final Map<String,Schema.SObjectField> sObjectFieldMap{get;set;}
+	public Map<String,Schema.SObjectField> sObjectFieldMap{get;set;}
 
 	public ErrorsHandler errorsHandler;
 
@@ -55,29 +51,13 @@ public class ORDO_XmlDocumentParser {
 		}
 	}
 
-	public ORDO_XmlDocumentParser(Document passedDocument,SObjectType passedObjectType) {
-		document = passedDocument;
-		objectType = passedObjectType;
-		sObjectFieldMap = setSobjectFieldMap();
-		xmlDocument = initializeXmlDocument();
-		initializeXmlDocument();
-		if(avaiableNamespaces.size() == 0){
-			initializeAvailableNamespaces();
-		}
-	}
-
-	private Map<String,Schema.SObjectField> setSobjectFieldMap(){
-		if(objectType == null){
-			throw new ORDO_XmlException('Object Type is null!');
-		}
+	public static Set<String> listXMLEntriesForAccountFields(SObjectType objectType){		
 		DescribeSObjectResult describeResult = objectType.getDescribe();		
 		Map<String,Schema.SObjectField> fieldMap = describeResult.fields.getMap();
-		fieldMap = updateMapKeysToXmlEntries(fieldMap);	
-
-		return fieldMap;	
+		return updateMapKeysToXmlEntries(fieldMap).keySet();
 	}
 
-	private Map<String,Schema.SObjectField> updateMapKeysToXmlEntries(Map<String,Schema.SObjectField> mapToUpdate){
+	private static Map<String,Schema.SObjectField> updateMapKeysToXmlEntries(Map<String,Schema.SObjectField> mapToUpdate){
 		Map<String,Schema.SObjectField> newMap = new Map<String,Schema.SObjectField>();
 		for(String key:mapToUpdate.keySet()){
 			String newKey = key.remove('__c').replace('_','').toLowerCase();			
@@ -85,17 +65,42 @@ public class ORDO_XmlDocumentParser {
 		}
 
 		return newMap;
-	}	
+	}
+
+	public ORDO_XmlDocumentParser() {		
+		errorsHandler = new ErrorsHandler();		
+		if(avaiableNamespaces.size() == 0){
+			initializeAvailableNamespaces();
+		}
+	}
+
+	private Map<String,Schema.SObjectField> setSobjectFieldMap(){
+		if(objectType == null){
+			errorsHandler.registerError('ObjectType is null!',true);
+			return null;
+		}
+		DescribeSObjectResult describeResult = objectType.getDescribe();		
+		Map<String,Schema.SObjectField> fieldMap = describeResult.fields.getMap();
+		fieldMap = updateMapKeysToXmlEntries(fieldMap);	
+
+		return fieldMap;	
+	}		
 
 	private Dom.Document initializeXmlDocument(){
 		if(document == null){
-			throw new ORDO_XmlException('Document is null!');
+			errorsHandler.registerError('Document is null!',true);
+			return null;
 		}
-		String domDocumentBody = document.Body.toString();					
-		Dom.Document xmlDocument = new Dom.Document();
-		xmlDocument.load(domDocumentBody);
 
-		return xmlDocument;				
+		try{
+			String domDocumentBody = document.Body.toString();					
+			Dom.Document xmlDocument = new Dom.Document();
+			xmlDocument.load(domDocumentBody);
+			return xmlDocument;	
+		}catch(XmlException ex){			
+			errorsHandler.registerError('Problem with transform to XML document occur',true);
+			throw new ORDO_XmlException(ex.getMessage(),ex);
+		}					
 	}
 
 	private Boolean isNamespaceAvailable(String namespace){
@@ -107,23 +112,25 @@ public class ORDO_XmlDocumentParser {
 	}	
 
 	/*
-	* In Salesforce we are not able to put Location field directly,
-	* We need to pass field by __Latitude__s and __Longitude__s 
-	* values.
+	*	In Salesforce we are not able to put Location field directly,
+	*	We need to pass field by __Latitude__s and __Longitude__s indirectly
+	*	values.
 	*/
-	private Boolean processXmlNode(Dom.XmlNode node,SObject parseObject,String allowedNamespace){
+	private Boolean processXmlNode(Dom.XmlNode node,SObject parseObject){
 		if(node == null || parseObject == null){
 			return false;
 		}
 		for(Dom.XmlNode elem:node.getChildElements()){
 
 			if(!isNamespaceAvailable(elem.getNamespace())){
-				return (Boolean) errorsHandler.registerError(elem.getNamespace()+' namespace is not allowed!',true,false);				
+				errorsHandler.registerError(elem.getNamespace()+' namespace is not allowed!',true);				
+				return false;
 			}
 
 			SObjectField field = sObjectFieldMap.get(elem.getName());			
 			if(field == null){
-				return (Boolean) errorsHandler.registerError(elem.getName()+' no such field in '+objectType+' object!',true,false);				
+				errorsHandler.registerError(elem.getName()+' no such field in '+objectType+' object!',true);
+				return false;				
 			}
 
 			String fieldName = field.getDescribe().getName();
@@ -134,72 +141,74 @@ public class ORDO_XmlDocumentParser {
 				Location location = (Location) value;
 				parseObject.put(fieldName.remove('__c')+'__Latitude__s',location.getLatitude());
 				parseObject.put(fieldName.remove('__c')+'__Longitude__s',location.getLongitude());
+			}else if(dataType == Schema.DisplayType.Picklist && value != null){
+				if(isPicklistValueAvailable(field,(String) value)){
+					parseObject.put(fieldName,value);
+				}else{
+					errorsHandler.registerError('No such picklist value['+value+'] for: '+fieldName,true);
+					return false;
+				}
 			}else if(value != null){
+
 				parseObject.put(fieldName,value);	
 			}else{
-				return (Boolean) errorsHandler.registerError('Value for: '+elem.getName()+' namespace['+elem.getNamespace()+'] is null!'
-					,true,false);
+				errorsHandler.registerError('Value for: '+elem.getName()+' namespace['+elem.getNamespace()+'] is null!',true);
+				return false;
 			}			
 		}
 
 		return true;
 	}
 
-	private Object getDataValue(Schema.DisplayType dataType,String textValue){
+	/*
+	*	This function make data packaging.
+	*	From xml we are able to get string value only.
+	*	Here we can do maping thanks to current field data type and text value
+	*	If object which you want to parse have unsupported data type you can define
+	*	maping here.
+	*
+	*	It's achieved by using Type apex class and polymorphism.
+	*/
+	private Object getDataValue(Schema.DisplayType dataType,String textValue){				
 		try{
-			if(dataType == Schema.DisplayType.String || dataType == Schema.DisplayType.Picklist){
-				return textValue;
-			}else if(dataType == Schema.DisplayType.Integer){
-				return Integer.valueOf(textValue);
-			}else if(dataType == Schema.DisplayType.Double){
-				return Double.valueOf(textValue);
-			}else if(dataType == Schema.DisplayType.Location){
-				return getLocationValue(textValue);			
-			}else if(dataType == Schema.DisplayType.Boolean){
-				return getBooleanValue(textValue);
-			}else if(dataType == Schema.DisplayType.Date){
-				return Date.parse(textValue);
-			}
-			else{
-				return null;
-			}
+			ORDO_DataMapping.DataTransfer dataTypeTransfer = (ORDO_DataMapping.DataTransfer) dataTypesMapping.get(dataType).newInstance();
+			return dataTypeTransfer.transfer(textValue);
 		}catch(TypeException ex){
-			System.debug(ex.getMessage());
+			errorsHandler.registerError(ex.getMessage(),true);
+			return null;
+		}catch(NullPointerException ex){
+			errorsHandler.registerError('Probably not appropriate data type mapping found, details: '+ex.getMessage(),true);
 			return null;
 		}
 	}
 
-	private Location getLocationValue(String stringLocation){
-		List<String> locations = stringLocation.split(',');
-		if(locations.size() != 2){
-			return null;
+	private Boolean isPicklistValueAvailable(SObjectField field,String picklistValue){
+		Schema.DescribeFieldResult fieldDescription = field.getDescribe();
+		List<Schema.PicklistEntry> picklistEntries = fieldDescription.getPicklistValues();
+		for(Schema.PicklistEntry entry:picklistEntries){
+			if(entry.getValue().equals(picklistValue)){
+				return true;
+			}
 		}
-		Double latitude = Double.valueOf(locations[0]);
-		Double longitude = Double.valueOf(locations[1]);
-		return Location.newInstance(latitude,longitude);
-				
+		return false;
 	}
 
-	private Boolean getBooleanValue(String stringBoolean){
-		if(!stringBoolean.equals(STRING_XML_TRUE) && !stringBoolean.equals(STRING_XML_FALSE)){
+	public override List<SObject> getSObjects(){		
+		if(xmlDocument == null || objectType == null){
 			return null;
 		}
 
-		return stringBoolean.equals(STRING_XML_TRUE) ? true:false;
-	}
-
-	public List<SObject> getSObjects(){		
-		List<SObject> parsedObjects = new List<SObject>();
+		List<SObject> parsedObjects = new List<SObject>();		
 		Dom.XmlNode rootNode = xmlDocument.getRootElement();
 		String namespace = rootNode.getNamespace();
-		errorsHandler = new ErrorsHandler();
+	
 		if(String.isBlank(namespace) || !isNamespaceAvailable(namespace)){
-			errorsHandler.registerError(namespace+' is not avaiable or is blank!',true,null);	
+			errorsHandler.registerError(namespace+' is not avaiable or is blank!',true);	
 			return null;		
 		}
 		for(Dom.XmlNode childNode:rootNode.getChildElements()){
 			SObject parseObject = objectType.newSObject();
-			if(!isNamespaceAvailable(childNode.getNamespace()) || !processXmlNode(childNode,parseObject,namespace)){
+			if(!isNamespaceAvailable(childNode.getNamespace()) || !processXmlNode(childNode,parseObject)){
 				return null;
 			}else{
 				parsedObjects.add(parseObject);
@@ -209,6 +218,25 @@ public class ORDO_XmlDocumentParser {
 		return parsedObjects; 
 	}
 
+	public override void setDataSource(Object dataSource){		
+		if(document != null){
+			System.debug('Document has been already set!');
+		}else if(!(dataSource instanceof Document)){
+			System.debug('Incorrect data source!');
+		}else{
+			document = (Document) dataSource;
+			xmlDocument = initializeXmlDocument();	
+		}
+	}
+
+	public override void setSObjectType(SObjectType sObjectType){
+		if(objectType != null){
+			System.debug('ObjectType has been already set!');
+		}else{
+			objectType = sObjectType;
+			sObjectFieldMap = setSobjectFieldMap();
+		}
+	}
 
 	public class ErrorsHandler{
 		public final List<String> errors{set;get;}
@@ -223,13 +251,11 @@ public class ORDO_XmlDocumentParser {
 			errors = new List<String>();
 		}	
 
-		public Object registerError(String error,Boolean debugOutput,Object returnValue){
+		public void registerError(String error,Boolean debugOutput){
 			errors.add(error);
 			if(debugOutput){
-				System.debug(debugOutput);
+				System.debug(error);
 			}
-
-			return returnValue;
 		}
 	} 
 }
