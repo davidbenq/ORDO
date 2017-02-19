@@ -1,3 +1,22 @@
-<apex:page showHeader="true" sidebar="true">
-	
+<apex:page showHeader="true" sidebar="true" controller="ORDO_ImportDataController">
+	<apex:form>
+		<apex:pageBlock title="Import Data">	
+			<apex:pageMessages/>		
+			<apex:pageBlockButtons>
+				<apex:commandButton value="Import" action="{!importData}" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection columns="2">
+				<apex:pageBlockSection columns="1" title="Document details">					
+					<apex:inputField value="{!xmlDocument.Name}" label="Name"/>				
+					<apex:inputField value="{!xmlDocument.Description}" label="Decription"/>	
+					<apex:inputFile value="{!xmlDocument.Body}"/>		
+				</apex:pageBlockSection>
+				<apex:pageBlockSection columns="1" title="Imported Object">					
+					<apex:selectRadio value="{!importObjectName}" layout="pageDirection">
+						<apex:selectOptions value="{!objectOptions}"/>
+					</apex:selectRadio>	
+				</apex:pageBlockSection>
+			</apex:pageBlockSection>		
+		</apex:pageBlock>
+	</apex:form>
 </apex:page>
